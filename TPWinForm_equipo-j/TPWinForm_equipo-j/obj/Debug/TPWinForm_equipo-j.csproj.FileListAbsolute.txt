@@ -57,3 +57,7 @@ C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPW
 C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\obj\Debug\TPWinForm_equipo-j.csproj.CopyComplete
 C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\obj\Debug\TPWinForm_equipo-j.dll
 C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\obj\Debug\TPWinForm_equipo-j.pdb
+C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\bin\dominio.dll
+C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\bin\negocio.dll
+C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\bin\dominio.pdb
+C:\Users\Lucio\OneDrive\Escritorio\TP WEB\tp-web-equipo-j\TPWinForm_equipo-j\TPWinForm_equipo-j\bin\negocio.pdb

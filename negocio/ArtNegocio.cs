@@ -54,6 +54,47 @@ namespace negocio
         }
 
 
+        public List<Articulo> listarSP()
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.setearQuerySP("StoredListar");
+                datos.ejectuarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Codigo = datos.Lector.GetString(1);
+                    aux.Nombre = datos.Lector.GetString(2);
+                    aux.Descripcion = datos.Lector.GetString(3);
+                    aux.Marca = new Marca();
+                    aux.Marca.IDMarca = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Precio = datos.Lector.GetDecimal(6);
+                    aux.Imagen = new Imagen();
+                    aux.Imagen.URL = (string)datos.Lector["Imagen"];
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("hay un error en la BD " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void agregar(Articulo art)
         {
             AccesoDB datos = new AccesoDB();
