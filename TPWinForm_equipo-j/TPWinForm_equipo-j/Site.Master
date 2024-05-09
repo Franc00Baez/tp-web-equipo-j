@@ -15,11 +15,10 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Default.aspx">Proyecto ASP.Net</a>
+                <a class="navbar-brand">Proyecto Carrito de Compras </a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
-                        <a class="nav-link active" href="Page1.aspx">Catálogo</a>
                         <a class="nav-link disabled" aria-disabled="true">Ver carrito</a>
                     </div>
                 </div>
@@ -29,7 +28,37 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer>Pie de MP</footer>
+        <footer style="margin-top: 300px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Integrantes</h4>
+                        <ul>
+                            <li>Franco Baez</li>
+                            <li>Lucio Luque</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Repositorio del proyecto</h4>
+                        <ul>
+                            <li><a href="https://github.com/Franc00Baez/tp-web-equipo-j" target="_blank">https://github.com/Franc00Baez/tp-web-equipo-j</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Githubs</h4>
+                        <ul class="social-icons">
+                            <li><a href="https://github.com/Franc00Baez" target="_blank">Github de Franco</a></li>
+                            <li><a href="https://github.com/LucioNiderhaus" target="_blank">Github de Lucio</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-bar">
+                <div class="container">
+                    <p>&copy; 2024 Proyecto carrito de compras. Todos los derechos reservados xD.</p>
+                </div>
+            </div>
+        </footer>
     </form>
 </body>
 </html>
