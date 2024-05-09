@@ -5,16 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using negocio;
+using program;
 
 namespace TPWinForm_equipo_j
 {
     public partial class Page1 : System.Web.UI.Page
     {
+        public List<Articulo> ListaArticulo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
            ArtNegocio negocio = new ArtNegocio();
-            dgvArticulos.DataSource = negocio.listarSP();
-            dgvArticulos.DataBind();
+            ListaArticulo = negocio.listarSP();
+
+            Rep1.DataSource = ListaArticulo;
+            Rep1.DataBind();
         }
     }
 }
