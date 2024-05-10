@@ -1,4 +1,6 @@
-﻿using System;
+﻿using negocio;
+using program;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,24 @@ namespace TPWinForm_equipo_j
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+            }
 
+            if (Request.QueryString["id"] != null)
+            {
+                int id = int.Parse(Request.QueryString["id"].ToString());
+                List<Articulo> temporal = (List < Articulo >) Session["NuevaLista"];
+                Articulo seleccionado = temporal.Find(x => x.Id ==id);
+                txtbNombre.Text = seleccionado.Nombre;
+                txtbCodigo.Text = seleccionado.Codigo;
+                txtbDescripcion.Text = seleccionado.Descripcion;
+                txtbCategoria.Text = seleccionado.Categoria.Descripcion;
+                txtbMarca.Text = seleccionado.Marca.Descripcion;
+                txtbPrecio.Text = seleccionado.Precio.ToString();
+                string imagen = seleccionado.Imagen.URL;
+               
+            }
         }
 
     }

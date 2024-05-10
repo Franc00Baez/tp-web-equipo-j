@@ -18,6 +18,8 @@ namespace program
         public decimal Precio { get; set; }
 
         public Imagen Imagen { get; set; }
+
+        public List<Imagen> imagenes { get; set; }
        
     }
 }

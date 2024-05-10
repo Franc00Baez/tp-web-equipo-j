@@ -14,10 +14,27 @@ namespace TPWinForm_equipo_j
         public List<Articulo> ListaArticulo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["NuevaLista"] == null)
+            {
             ArtNegocio negocio = new ArtNegocio();
+            Session.Add("NuevaLista", negocio.listar());
             ListaArticulo = negocio.listarSP();
-            Rep1.DataSource = ListaArticulo;
+            }
+            Rep1.DataSource = Session["NuevaLista"];
             Rep1.DataBind();
+        }
+
+        protected void btnDetalles_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string id = btn.CommandArgument;
+
+            Response.Redirect("DetalleArticulo.aspx?id=" + id);
+        }
+
+        protected void btnDetalles_Command(object sender, CommandEventArgs e)
+        {
+
         }
     }
 }
