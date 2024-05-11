@@ -263,5 +263,48 @@ namespace negocio
                 return listar();
             }
         }
+        public Articulo ObtenerArticuloPorID(int id)
+        {
+            AccesoDB datos = new AccesoDB();
+            try
+            {
+                datos.setearQuery("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, C.Descripcion AS Categoria, Precio, COALESCE(I.ImagenUrl, 'Sin imagen') AS Imagen, IdMarca, IdCategoria FROM ARTICULOS A INNER JOIN MARCAS M ON M.Id = A.IdMarca INNER JOIN CATEGORIAS C ON C.Id = A.IdCategoria LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id WHERE A.Id = @Id;");
+                datos.setearParametro("@Id", id);
+                datos.ejectuarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Codigo = datos.Lector.GetString(1);
+                    aux.Nombre = datos.Lector.GetString(2);
+                    aux.Descripcion = datos.Lector.GetString(3);
+                    aux.Marca = new Marca();
+                    aux.Marca.IDMarca = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Precio = datos.Lector.GetDecimal(6);
+                    aux.Imagen = new Imagen();
+                    aux.Imagen.URL = (string)datos.Lector["Imagen"];
+
+                    return aux;
+                }
+                else
+                {
+                    // Si el artículo no se encuentra, puedes lanzar una excepción o devolver null, dependiendo de tus necesidades.
+                    throw new Exception("El artículo con ID " + id + " no fue encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el artículo: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     } 
 }

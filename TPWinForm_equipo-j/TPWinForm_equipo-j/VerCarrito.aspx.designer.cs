@@ -11,25 +11,16 @@ namespace TPWinForm_equipo_j
 {
 
 
-    public partial class Default
+    public partial class VerCarrito
     {
 
         /// <summary>
-        /// Control lblError.
+        /// Control dgvCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// Control Rep1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Rep1;
+        protected global::System.Web.UI.WebControls.GridView dgvCarrito;
     }
 }

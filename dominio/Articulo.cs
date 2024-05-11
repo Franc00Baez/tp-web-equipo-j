@@ -22,4 +22,6 @@ namespace program
         public List<Imagen> imagenes { get; set; }
        
     }
+
+
 }
