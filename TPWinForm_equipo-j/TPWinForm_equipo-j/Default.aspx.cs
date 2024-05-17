@@ -22,7 +22,7 @@ namespace TPWinForm_equipo_j
                 {
                     ArtNegocio negocio = new ArtNegocio();
                     Session.Add("NuevaLista", negocio.listar());
-                    ListaArticulo = negocio.listarSP();
+                    ListaArticulo = negocio.listar();
                 }
                 Rep1.DataSource = Session["NuevaLista"];
                 Rep1.DataBind();

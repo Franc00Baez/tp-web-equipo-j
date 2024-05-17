@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace program
 {
-    
-        public class  Articulo
+
+    public class Articulo
     {
         public int Id { get; set; }
         public string Codigo { get; set; }
@@ -20,6 +20,8 @@ namespace program
         public Imagen Imagen { get; set; }
 
         public List<Imagen> imagenes { get; set; }
+
+
        
     }
 
