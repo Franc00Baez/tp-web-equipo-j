@@ -17,6 +17,7 @@ namespace TPWinForm_equipo_j
             if (!IsPostBack)
             {
                 ActualizarCarrito();
+                lblPrecioTotal.Text = ObtenerPrecioTotal();
             }
         }
 
@@ -58,6 +59,14 @@ namespace TPWinForm_equipo_j
 
                 }
             }
+        }
+        protected string ObtenerPrecioTotal()
+        {
+            List<Carrito> carrito = (List<Carrito>)Session["carrito"];
+
+            decimal precioTotal = carrito.Sum(item => item.Articulo.Precio * item.Cantidad);
+
+            return string.Format("Precio Total: {0:C}", precioTotal);
         }
 
 
