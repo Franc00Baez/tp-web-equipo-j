@@ -181,13 +181,13 @@ namespace negocio
                     switch (criterio)
                     {
                         case "Mayor a":
-                            consulta += "Precio > " + filtro;
+                            consulta += " Precio > " + filtro;
                             break;
                         case "Menor que":
-                            consulta += "Precio < " + filtro;
+                            consulta += " Precio < " + filtro;
                             break;
                         case "Igual a":
-                            consulta += "Precio = " + filtro;
+                            consulta += " Precio = " + filtro;
                             break;
                     }
                     break;
@@ -255,15 +255,17 @@ namespace negocio
                     aux.Precio = datos.Lector.GetDecimal(6);
                     aux.Imagen = new Imagen();
                     aux.Imagen.URL = (string)datos.Lector["Imagen"];
-
-                    lista.Add(aux);
+                    if (!lista.Any(x => x.Id == aux.Id))
+                    {
+                        lista.Add(aux);
+                    }
                 }
                 return lista;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error en el filtrado: " + ex.ToString());
                 return listar();
             }
         }

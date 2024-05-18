@@ -80,5 +80,47 @@ namespace TPWinForm_equipo_j
                 }
             }
         }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string campo = ddlCampo.SelectedValue;
+                string criterio = ddlCriterio.SelectedValue;
+                string filtro = txtFiltro.Text;
+
+                ArtNegocio negocio = new ArtNegocio();
+                List<Articulo> listaFiltrada = negocio.Filtrar(campo, criterio, filtro);
+
+                Rep1.DataSource = listaFiltrada;
+                Rep1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Ocurrió un error al aplicar el filtro: " + ex.Message;
+            }
+        }
+
+        protected void ddlCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string campoSeleccionado = ddlCampo.SelectedValue;
+
+            ddlCriterio.Items.Clear();
+            switch (campoSeleccionado)
+            {
+                case "Nombre":
+                case "Marca":
+                case "Categoria":
+                    ddlCriterio.Items.Add(new ListItem("Comienza por", "Comienza por"));
+                    ddlCriterio.Items.Add(new ListItem("Termina con", "Termina con"));
+                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
+                    break;
+                case "Precio":
+                    ddlCriterio.Items.Add(new ListItem("Mayor que", "Mayor que"));
+                    ddlCriterio.Items.Add(new ListItem("Menor que", "Menor que"));
+                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
+                    break;
+            }
+        }
     }
 }
