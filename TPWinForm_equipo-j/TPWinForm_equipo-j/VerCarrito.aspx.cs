@@ -41,11 +41,22 @@ namespace TPWinForm_equipo_j
             Carrito articuloAEliminar = carrito.FirstOrDefault(c => c.Articulo.Id == idArticulo);
             if (articuloAEliminar != null)
             {
-                carrito.Remove(articuloAEliminar);
-                Session["carrito"] = carrito;
-                ActualizarCarrito();
-                Session["CartCount"] = carrito.Count;
-                Response.Redirect(Request.RawUrl);
+                if(articuloAEliminar.Cantidad > 1)
+                {
+                    articuloAEliminar.Cantidad--;
+                    Session["carrito"] = carrito;
+                    ActualizarCarrito();
+                    Session["CartCount"] = carrito.Sum(item => item.Cantidad);
+                    Response.Redirect(Request.RawUrl);
+                }else
+                {
+                    carrito.Remove(articuloAEliminar);
+                    Session["carrito"] = carrito;
+                    ActualizarCarrito();
+                    Session["CartCount"] = carrito.Sum(item => item.Cantidad);
+                    Response.Redirect(Request.RawUrl);
+
+                }
             }
         }
 

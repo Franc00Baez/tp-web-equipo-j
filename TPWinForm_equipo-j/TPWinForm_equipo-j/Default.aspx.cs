@@ -44,6 +44,7 @@ namespace TPWinForm_equipo_j
             {
                 Button btn = (Button)sender;
                 int idArticulo = int.Parse(btn.CommandArgument);
+                int cartCount = 0;
 
                 if (Session["carrito"] != null)
                 {
@@ -54,10 +55,21 @@ namespace TPWinForm_equipo_j
 
                     if (articulo != null)
                     {
-                        carrito.Add(new Carrito(articulo, 1));
-                        Session["carrito"] = carrito;
-                        int cartCount = carrito.Count;
-                        Session["CartCount"] = cartCount;
+                        Carrito existe = carrito.Find(x => x.Articulo.Id == articulo.Id);
+                        if (existe != null)
+                        {
+                            existe.Cantidad++;
+                            Session["carrito"] = carrito;
+                            cartCount = carrito.Sum(item => item.Cantidad);
+                            Session["CartCount"] = cartCount;
+                        }
+                        else
+                        {
+                            carrito.Add(new Carrito(articulo, 1));
+                            Session["carrito"] = carrito;
+                            cartCount = carrito.Sum(item => item.Cantidad);
+                            Session["CartCount"] = cartCount;
+                        }
                     }
                 }
                 Response.Redirect("VerCarrito.aspx");
@@ -107,17 +119,15 @@ namespace TPWinForm_equipo_j
 
             ddlCriterio.Items.Clear();
             switch (campoSeleccionado)
-            {
-                case "Nombre":
-                case "Marca":
-                case "Categoria":
-                    ddlCriterio.Items.Add(new ListItem("Comienza por", "Comienza por"));
-                    ddlCriterio.Items.Add(new ListItem("Termina con", "Termina con"));
-                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
-                    break;
+            {   
                 case "Precio":
                     ddlCriterio.Items.Add(new ListItem("Mayor que", "Mayor que"));
                     ddlCriterio.Items.Add(new ListItem("Menor que", "Menor que"));
+                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
+                    break;
+                default:
+                    ddlCriterio.Items.Add(new ListItem("Comienza por", "Comienza por"));
+                    ddlCriterio.Items.Add(new ListItem("Termina con", "Termina con"));
                     ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
                     break;
             }
