@@ -22,7 +22,7 @@
                 <asp:Repeater ID="rptImages" runat="server">
                     <ItemTemplate>
                         <div class="carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>">
-                            <img src="<%# Eval("URL") %>" class="d-block custom-carousel-img" alt="Imagen del artículo">
+                            <img src="<%# Eval("URL") %>" class="d-block custom-carousel-img" alt="Imagen del artículo" onerror="this.src='https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg'">
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
