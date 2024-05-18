@@ -15,23 +15,26 @@ namespace TPWinForm_equipo_j
         {
             if (!IsPostBack)
             {
+                if (Request.QueryString["id"] != null)
+                {
+                    int id = int.Parse(Request.QueryString["id"].ToString());
+                    List<Articulo> temporal = (List<Articulo>)Session["NuevaLista"];
+                    Articulo seleccionado = temporal.Find(x => x.Id == id);
+
+                    if (seleccionado != null)
+                    {
+                        txtbNombre.Text = seleccionado.Nombre;
+                        txtbCodigo.Text = seleccionado.Codigo;
+                        txtbDescripcion.Text = seleccionado.Descripcion;
+                        txtbCategoria.Text = seleccionado.Categoria.Descripcion;
+                        txtbMarca.Text = seleccionado.Marca.Descripcion;
+                        txtbPrecio.Text = seleccionado.Precio.ToString();
+                        rptImages.DataSource = seleccionado.imagenes;
+                        rptImages.DataBind();
+                    }
+                }
             }
 
-            if (Request.QueryString["id"] != null)
-            {
-                int id = int.Parse(Request.QueryString["id"].ToString());
-                List<Articulo> temporal = (List < Articulo >) Session["NuevaLista"];
-                Articulo seleccionado = temporal.Find(x => x.Id ==id);
-                txtbNombre.Text = seleccionado.Nombre;
-                txtbCodigo.Text = seleccionado.Codigo;
-                txtbDescripcion.Text = seleccionado.Descripcion;
-                txtbCategoria.Text = seleccionado.Categoria.Descripcion;
-                txtbMarca.Text = seleccionado.Marca.Descripcion;
-                txtbPrecio.Text = seleccionado.Precio.ToString();
-                string imagen = seleccionado.Imagen.URL;
-               
-            }
         }
-
     }
 }

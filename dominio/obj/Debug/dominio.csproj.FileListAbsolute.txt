@@ -28,3 +28,9 @@ C:\Users\Franco\source\tp-web-equipo-j\dominio\obj\Debug\dominio.csproj.Assembly
 C:\Users\Franco\source\tp-web-equipo-j\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\Franco\source\tp-web-equipo-j\dominio\obj\Debug\dominio.dll
 C:\Users\Franco\source\tp-web-equipo-j\dominio\obj\Debug\dominio.pdb
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\bin\Debug\dominio.dll
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\bin\Debug\dominio.pdb
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\obj\Debug\dominio.dll
+C:\Users\Franco\FACULTAD\prog3\tp-web-equipo-j\dominio\obj\Debug\dominio.pdb

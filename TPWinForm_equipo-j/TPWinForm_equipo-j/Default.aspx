@@ -2,11 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Bienvenido</h1>
-    <p>Este es la página default</p>
     <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
     <div class="row">
-        <h1>HOLA</h1>
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <asp:Repeater ID="Rep1" runat="server" OnItemDataBound="Rep1_ItemDataBound">
                 <ItemTemplate>

@@ -1,25 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleArticulo.aspx.cs" Inherits="TPWinForm_equipo_j.DetalleArticulo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .custom-carousel {
+            width: 300px; 
+            height: 300px; 
+            margin: auto; 
+        }
+        .custom-carousel-img {
+            max-width: 300px; 
+            max-height: 300px; 
+            object-fit: cover; 
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <div class="container">
-        <div id="carouselExample" class="carousel slide">
+           <div id="carouselExample" class="carousel slide custom-carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="..." id="imgArticulo" runat="server" class="d-block w-100" alt="...">
-                </div>
+                <asp:Repeater ID="rptImages" runat="server">
+                    <ItemTemplate>
+                        <div class="carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>">
+                            <img src="<%# Eval("URL") %>" class="d-block custom-carousel-img" alt="Imagen del artículo">
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
         <div class="mb-3">
             <label for="txtbNombre" class="form-label">Nombre del artículo</label>
             <asp:TextBox ID="txtbNombre" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>

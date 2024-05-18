@@ -38,6 +38,7 @@ namespace negocio
                     aux.Precio = datos.Lector.GetDecimal(6);
                     aux.Imagen = new Imagen();
                     aux.Imagen.URL = (string)datos.Lector["Imagen"];
+                    aux.imagenes = ObtenerImagenesPorArticuloId(aux.Id);
                     if (!lista.Any(x => x.Id == aux.Id))
                     {
                         lista.Add(aux);
@@ -308,6 +309,34 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        private List<Imagen> ObtenerImagenesPorArticuloId(int articuloId)
+        {
+            List<Imagen> imagenes = new List<Imagen>();
+            AccesoDB datos = new AccesoDB();
+
+            try
+            {
+                datos.setearQuery("SELECT ImagenUrl as URL FROM Imagenes WHERE IdArticulo = @ArticuloId");
+                datos.setearParametro("@ArticuloId", articuloId);
+                datos.ejectuarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Imagen img = new Imagen
+                    {
+                        URL = (string)datos.Lector["URL"]
+                    };
+                    imagenes.Add(img);
+                }
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return imagenes;
         }
     } 
 }
