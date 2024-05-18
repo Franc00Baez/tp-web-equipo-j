@@ -119,15 +119,17 @@ namespace TPWinForm_equipo_j
 
             ddlCriterio.Items.Clear();
             switch (campoSeleccionado)
-            {   
+            {
+                case "Nombre":
+                case "Marca":
+                case "Categoria":
+                    ddlCriterio.Items.Add(new ListItem("Comienza por", "Comienza por"));
+                    ddlCriterio.Items.Add(new ListItem("Termina con", "Termina con"));
+                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
+                    break;
                 case "Precio":
                     ddlCriterio.Items.Add(new ListItem("Mayor que", "Mayor que"));
                     ddlCriterio.Items.Add(new ListItem("Menor que", "Menor que"));
-                    ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
-                    break;
-                default:
-                    ddlCriterio.Items.Add(new ListItem("Comienza por", "Comienza por"));
-                    ddlCriterio.Items.Add(new ListItem("Termina con", "Termina con"));
                     ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
                     break;
             }

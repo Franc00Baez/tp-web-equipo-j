@@ -1,13 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerCarrito.aspx.cs" Inherits="TPWinForm_equipo_j.VerCarrito" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .precio-total float-end{
-            background-color: lightgrey;
-            border: solid;
-            border-color: black;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:GridView ID="dgvCarrito" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" runat="server">
