@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
 
 namespace TPWinForm_equipo_j
 {
@@ -11,7 +12,17 @@ namespace TPWinForm_equipo_j
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                UpdateCartCount();
+            }
         }
+
+        public void UpdateCartCount()
+        {
+            int cartCount = Session["CartCount"] != null ? (int)Session["CartCount"] : 0;
+            CartCountLiteral.Text = cartCount.ToString();
+        }
+
     }
 }

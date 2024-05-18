@@ -44,6 +44,8 @@ namespace TPWinForm_equipo_j
                 carrito.Remove(articuloAEliminar);
                 Session["carrito"] = carrito;
                 ActualizarCarrito();
+                Session["CartCount"] = carrito.Count;
+                Response.Redirect(Request.RawUrl);
             }
         }
 

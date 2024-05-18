@@ -56,6 +56,8 @@ namespace TPWinForm_equipo_j
                     {
                         carrito.Add(new Carrito(articulo, 1));
                         Session["carrito"] = carrito;
+                        int cartCount = carrito.Count;
+                        Session["CartCount"] = cartCount;
                     }
                 }
                 Response.Redirect("VerCarrito.aspx");
