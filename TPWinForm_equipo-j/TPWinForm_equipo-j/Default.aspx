@@ -17,7 +17,7 @@
             <asp:ListItem Value="Igual a">Igual a</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="txtFiltro" runat="server" CssClass="form-control-sm" placeholder="Ingrese el filtro"></asp:TextBox>
-        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-primary" OnClick="btnFiltrar_Click" />
+        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-secondary btn-sm" OnClick="btnFiltrar_Click" />
     </div>
     <div class="row">
         <div class="row row-cols-1 row-cols-md-2 g-4">
