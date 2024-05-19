@@ -45,12 +45,12 @@ namespace TPWinForm_equipo_j
                 Button btn = (Button)sender;
                 int idArticulo = int.Parse(btn.CommandArgument);
                 int cartCount = 0;
+                List<Carrito> carrito = new List<Carrito>();
+                ArtNegocio negocio = new ArtNegocio();
 
                 if (Session["carrito"] != null)
                 {
-                    List<Carrito> carrito = (List<Carrito>)Session["carrito"];
-
-                    ArtNegocio negocio = new ArtNegocio();
+                    carrito = (List<Carrito>)Session["carrito"];
                     Articulo articulo = negocio.ObtenerArticuloPorID(idArticulo);
 
                     if (articulo != null)
@@ -71,6 +71,13 @@ namespace TPWinForm_equipo_j
                             Session["CartCount"] = cartCount;
                         }
                     }
+                }else
+                {
+                    Articulo articulo = negocio.ObtenerArticuloPorID(idArticulo);
+                    carrito.Add(new Carrito(articulo, 1));
+                    Session["carrito"] = carrito;
+                    cartCount = carrito.Sum(item => item.Cantidad);
+                    Session["CartCount"] = cartCount;
                 }
                 Response.Redirect("VerCarrito.aspx");
             }
