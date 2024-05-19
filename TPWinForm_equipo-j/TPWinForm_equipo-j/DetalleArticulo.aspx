@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .custom-carousel {
+         .custom-carousel {
             width: 300px;
             height: 300px;
             margin: auto;
@@ -12,6 +12,13 @@
             max-width: 300px;
             max-height: 300px;
             object-fit: cover;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px;
         }
     </style>
 </asp:Content>
