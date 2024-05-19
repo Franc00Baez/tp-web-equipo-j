@@ -39,6 +39,7 @@ namespace negocio
                     aux.Imagen = new Imagen();
                     aux.Imagen.URL = (string)datos.Lector["Imagen"];
                     aux.imagenes = ObtenerImagenesPorArticuloId(aux.Id);
+                    //validamos que no se meta a la lista un articulo repetido
                     if (!lista.Any(x => x.Id == aux.Id))
                     {
                         lista.Add(aux);

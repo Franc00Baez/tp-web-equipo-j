@@ -29,6 +29,7 @@ namespace TPWinForm_equipo_j
                         txtbCategoria.Text = seleccionado.Categoria.Descripcion;
                         txtbMarca.Text = seleccionado.Marca.Descripcion;
                         txtbPrecio.Text = seleccionado.Precio.ToString();
+                        //pasamos la lista de imagenes del articulo al rptImages
                         rptImages.DataSource = seleccionado.imagenes;
                         rptImages.DataBind();
                     }
