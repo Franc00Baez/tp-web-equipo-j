@@ -3,8 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Bienvenido</h1>
-    <h2>Filtra por lo que necesites</h2>
+    <div>
+    <asp:Label ID="lblBienvenido" runat="server" Text="Bienvenido" CssClass="text- font-weight-bold h1" ></asp:Label>
+    </div>
+    <div>
+    <asp:Label ID="lblFiltrar" runat="server" Text="Filtra por lo que necesites" CssClass="text- font-weight-bold h3"></asp:Label>
+    </div>
+    <br />
     <div>
         <asp:DropDownList ID="ddlCampo" runat="server" CssClass="form-control-sm" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Value="Nombre">Nombre</asp:ListItem>

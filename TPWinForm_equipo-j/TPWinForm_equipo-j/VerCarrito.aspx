@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
+    <div>
+    <asp:Label ID="lblVacio" runat="server" Text="Carrito: " CssClass="text font-weight-bold h3"></asp:Label>
+    </div>
     <asp:GridView ID="dgvCarrito" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" runat="server">
     <Columns>
         <asp:BoundField DataField="Articulo.Nombre" HeaderText="Nombre del Artículo" />

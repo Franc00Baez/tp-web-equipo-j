@@ -14,11 +14,25 @@ namespace TPWinForm_equipo_j
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["carrito"] == null)
+            {
+                Session["carrito"] = new List<Carrito>();
+            }
+
+            List<Carrito> carrito = (List<Carrito>)Session["carrito"];
+
             if (!IsPostBack)
             {
                 ActualizarCarrito();
 
                 lblPrecioTotal.Text = ObtenerPrecioTotal();
+            }
+
+            if (carrito != null && carrito.Sum(item => item.Cantidad) == 0)
+            {
+                lblVacio.Text = "El carrito está vacío :(";
+                lblPrecioTotal.Visible = false;
             }
         }
 
