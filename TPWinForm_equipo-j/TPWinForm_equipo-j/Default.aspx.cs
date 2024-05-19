@@ -109,6 +109,21 @@ namespace TPWinForm_equipo_j
                 string criterio = ddlCriterio.SelectedValue;
                 string filtro = txtFiltro.Text;
 
+                if(campo == "Precio")
+                {
+                    decimal precio;
+                    if(!decimal.TryParse(filtro, out precio))
+                    {
+                        lblError.Text = "Por favor ingrese un valor numérico.";
+                        lblError.Visible = true;
+                        return;
+                    }
+                    else
+                    {
+                        lblError.Visible = false;
+                    }
+                }
+
                 ArtNegocio negocio = new ArtNegocio();
                 List<Articulo> listaFiltrada = negocio.Filtrar(campo, criterio, filtro);
 
