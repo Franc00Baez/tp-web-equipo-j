@@ -4,20 +4,23 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+    <h1>Bienvenido</h1>
+    <h2>Filtra por lo que necesites</h2>
     <div>
-        <asp:DropDownList ID="ddlCampo" runat="server" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged" AutoPostBack="true">
+        <asp:DropDownList ID="ddlCampo" runat="server" CssClass="form-control-sm" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
             <asp:ListItem Value="Marca">Marca</asp:ListItem>
             <asp:ListItem Value="Categoria">Categoría</asp:ListItem>
             <asp:ListItem Value="Precio">Precio</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlCriterio" runat="server">
+        <asp:DropDownList ID="ddlCriterio" CssClass="form-control-sm" runat="server">
             <asp:ListItem Value="Comienza por">Comienza por</asp:ListItem>
             <asp:ListItem Value="Termina con">Termina con</asp:ListItem>
             <asp:ListItem Value="Igual a">Igual a</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="txtFiltro" runat="server" CssClass="form-control-sm" placeholder="Ingrese el filtro"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-secondary btn-sm" OnClick="btnFiltrar_Click" />
+        <asp:Button ID="btnLimpiarFiltro" runat="server" CssClass="btn btn-secondary btn-sm" Text="Borrar filtro" OnClick="btnLimpiarFiltro_Click"/>
     </div>
     <div class="row">
         <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -29,6 +32,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
                                 <p class="card-text"><%#Eval("Descripcion") %></p>
+                                <p class="card-text">Precio: $<%# String.Format("{0:0.##}", Convert.ToDecimal(Eval("Precio")))%></p>
                                 <asp:Button ID="btncarrito" runat="server" class="btn btn-secondary btn-sm" Text="Agregar al carrito" CommandName="AddtoCart" OnClick="btncarrito_Click" />
                                 <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>" class="btn btn-secondary btn-sm">Ver detalles</a>
                             </div>

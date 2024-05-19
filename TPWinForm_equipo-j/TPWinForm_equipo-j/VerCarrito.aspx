@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <asp:GridView ID="dgvCarrito" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" runat="server">
     <Columns>
         <asp:BoundField DataField="Articulo.Nombre" HeaderText="Nombre del Artículo" />
@@ -16,6 +17,7 @@
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+    <br />
     <a href="Default.aspx" class="btn btn-secondary btn-sm">Volver al catálogo</a>
     <asp:Label ID="lblPrecioTotal" runat="server" CssClass="precio-total float-end" Text=""></asp:Label>
 </asp:Content>

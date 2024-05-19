@@ -8,6 +8,7 @@ using program;
 using dominio;
 using negocio;
 using System.Data.SqlClient;
+using System.Web.Services.Description;
 
 namespace TPWinForm_equipo_j
 {
@@ -122,6 +123,9 @@ namespace TPWinForm_equipo_j
 
         protected void ddlCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            try
+            {
             string campoSeleccionado = ddlCampo.SelectedValue;
 
             ddlCriterio.Items.Clear();
@@ -140,6 +144,20 @@ namespace TPWinForm_equipo_j
                     ddlCriterio.Items.Add(new ListItem("Igual a", "Igual a"));
                     break;
             }
+
+            }
+            catch (Exception ex)
+            {
+
+               throw;
+            }
+        }
+
+        protected void btnLimpiarFiltro_Click(object sender, EventArgs e)
+        {
+            ddlCampo.SelectedIndex = -1;
+            ddlCriterio.SelectedIndex = -1;
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

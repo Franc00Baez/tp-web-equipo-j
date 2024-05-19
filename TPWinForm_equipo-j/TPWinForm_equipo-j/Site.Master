@@ -35,13 +35,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
+                        <a class="nav-link" aria-current="page" href="Default.aspx">Home</a>
                     </div>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="VerCarrito.aspx">
                                 <i class="fas fa-shopping-cart"></i>
-                                Carrito
+                                <img src="..//resources//carrito.png"/>
                                 <asp:Literal ID="CartCountLiteral" runat="server"></asp:Literal>
                             </a>
                         </li>
@@ -53,7 +53,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer style="margin-top: 300px;" class="footer">
+        <footer style="margin-top: 100px;" class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -63,13 +63,13 @@
                             <li>Lucio Luque</li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <h4>Repositorio del proyecto</h4>
                         <ul>
                             <li><a href="https://github.com/Franc00Baez/tp-web-equipo-j" target="_blank">https://github.com/Franc00Baez/tp-web-equipo-j</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <h4>Githubs</h4>
                         <ul class="social-icons">
                             <li><a href="https://github.com/Franc00Baez" target="_blank">Github de Franco</a></li>
